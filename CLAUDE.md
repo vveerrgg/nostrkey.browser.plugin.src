@@ -44,6 +44,18 @@ NIP-01, NIP-04 (deprecated), NIP-07, NIP-19, NIP-44, NIP-46, NIP-49, NIP-78
 - Cross-device sync via storage.sync
 - WCAG AA accessibility
 
+## Repo Structure
+```
+src/                    # Extension source (JS, CSS, HTML)
+dev/apple/              # Xcode project (Safari/iOS wrapper)
+dev/qa/                 # QA automation (screenshot capture/resize)
+distros/                # Build output (gitignored)
+docs/                   # Website, privacy, terms
+docs_project_info/      # Project docs (testing, submission, vision)
+build.js                # esbuild config
+tailwind.config.js      # Tailwind config
+```
+
 ## Architecture
 Extension uses background service worker + sidepanel UI. Mobile apps (iOS/Android) wrap this in dual-WebView architecture with native bridges (IOSBridge.swift / AndroidBridge.kt).
 
@@ -51,6 +63,7 @@ Extension uses background service worker + sidepanel UI. Mobile apps (iOS/Androi
 - Vanilla JS, no frameworks
 - kebab-case file names
 - Chrome Web Store zips go in `distros/` folder
+- Xcode project lives at `dev/apple/NostrKey.xcodeproj`
 - WCAG AA contrast, aria-labels, reduced-motion support
 
 ## Related Repos
